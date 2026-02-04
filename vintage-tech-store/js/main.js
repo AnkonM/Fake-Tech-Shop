@@ -303,3 +303,24 @@ const renderCartPage = () => {
 bindCardInteractions();
 renderProductPage();
 renderCartPage();
+
+const contactForm = document.querySelector("#contact-form");
+const formSuccess = document.querySelector("#form-success");
+const formResetBtn = document.querySelector("#form-reset-btn");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    contactForm.style.display = "none";
+    formSuccess.style.display = "block";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
+if (formResetBtn) {
+  formResetBtn.addEventListener("click", () => {
+    contactForm.reset();
+    contactForm.style.display = "grid";
+    formSuccess.style.display = "none";
+  });
+}

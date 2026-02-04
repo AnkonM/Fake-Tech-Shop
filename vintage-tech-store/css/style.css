@@ -451,4 +451,68 @@ select {
     gap: 1rem;
     text-align: center;
   }
+
+  .contact-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-section {
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+.contact-form {
+  display: grid;
+  gap: 1.2rem;
+  background: var(--color-surface);
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 2px solid var(--color-highlight);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  color: var(--color-primary);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 0.8rem;
+  border: 2px solid var(--color-highlight);
+  border-radius: 10px;
+  background: var(--color-background);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-success {
+  background: var(--color-surface);
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 2px solid var(--color-highlight);
+  text-align: center;
 }
