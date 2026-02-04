@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart | Vintage Tech Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container navbar-inner">
+        <a class="brand" href="index.html">Vintage Tech Store</a>
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation">
+          Menu
+        </button>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="catalogue.html">Catalogue</a>
+          <a href="cart.html">Cart</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <h1 class="section-title">Your Cart</h1>
+      <div id="cart-empty" class="cart-empty">
+        <p>Your cart is empty. Discover something timeless.</p>
+        <a class="button" href="catalogue.html">Browse the Catalogue</a>
+      </div>
+      <section id="cart-items" class="cart-list"></section>
+      <div id="cart-summary" class="cart-summary">
+        <div>
+          <p class="price">Total</p>
+          <p id="cart-total" class="cart-total">$0</p>
+        </div>
+        <div class="cart-actions">
+          <button class="button secondary" id="clear-cart" type="button">Clear Cart</button>
+          <button class="button" type="button">Checkout</button>
+        </div>
+      </div>
+      <a class="button secondary" href="catalogue.html">Continue Shopping</a>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>© 2026 Vintage Tech Store. All rights reserved.</p>
+        <small>This is a frontend demo project. No products are for sale.</small>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -6,8 +6,9 @@ A polished, frontend-only vintage tech e-commerce UI demo with a retro aesthetic
 - Vintage-inspired layout with muted color palette
 - Fully responsive design for desktop and mobile
 - Landing page, catalogue grid, and product detail page
+- Clickable product cards and a working demo cart page
 - Subtle hover states and tactile UI elements
-- Minimal JavaScript for navigation toggle and demo alerts
+- Minimal JavaScript for navigation toggle, product routing, and demo cart state
 
 ## Folder Structure
 ```
@@ -15,6 +16,7 @@ vintage-tech-store/
 ├── index.html
 ├── catalogue.html
 ├── product.html
+├── cart.html
 ├── css/
 │   └── style.css
 ├── js/
@@ -42,3 +44,5 @@ vintage-tech-store/
 
 ## Disclaimer
 This is a frontend-only demo project. All products, prices, and interactions are fictional and for design presentation purposes only.
+
+> Note: Cart data is stored in browser storage for demo purposes only.

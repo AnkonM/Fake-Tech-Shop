@@ -22,37 +22,33 @@
         <nav class="nav-links">
           <a href="index.html">Home</a>
           <a href="catalogue.html">Catalogue</a>
+          <a href="cart.html">Cart</a>
         </nav>
       </div>
     </header>
 
     <main class="container">
-      <section class="product-layout">
+      <section class="product-layout" data-product-page data-default-id="mechanical-keyboard">
         <div class="card">
-          <img src="assets/images/mechanical-keyboard.svg" alt="Type 88 Mechanical Keyboard" />
+          <img id="product-image" src="assets/images/mechanical-keyboard.svg" alt="Type 88 Mechanical Keyboard" />
         </div>
         <div class="product-details">
-          <h2>Type 88 Mechanical Keyboard</h2>
-          <p class="price">$249</p>
-          <p>
+          <h2 id="product-title">Type 88 Mechanical Keyboard</h2>
+          <p id="product-price" class="price">$249</p>
+          <p id="product-description">
             Crafted for writers, coders, and collectors, the Type 88 delivers a
             signature tactile response with warm, vintage tones. Inspired by
             late-70s studio terminals, it balances nostalgia with everyday
             usability.
           </p>
-          <div class="hero-badges">
-            <span class="badge">Detachable coiled cable</span>
-            <span class="badge">Cherry-style switches</span>
-            <span class="badge">Retro beige keycaps</span>
-          </div>
           <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
             <button class="button add-to-cart" type="button">Add to Cart</button>
             <button class="button secondary" type="button">Buy Now</button>
           </div>
-          <ul class="specs">
+          <h3 class="section-title" style="margin-top: 1.6rem;">Specifications</h3>
+          <ul id="product-specs" class="specs">
             <li>Layout: 87-key compact</li>
             <li>Connection: USB-C to USB-A adapter</li>
-            <li>Weight: 1.4 kg</li>
             <li>Finish: Matte warm ivory</li>
           </ul>
           <a class="button secondary" style="margin-top: 1.2rem;" href="catalogue.html">
