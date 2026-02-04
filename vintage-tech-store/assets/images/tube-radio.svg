@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480" role="img" aria-label="Tube radio illustration">
+  <rect width="640" height="480" fill="#f2e7d5"/>
+  <rect x="140" y="150" width="360" height="200" rx="20" fill="#5b4a3a"/>
+  <rect x="170" y="180" width="200" height="140" rx="12" fill="#1f2a24"/>
+  <circle cx="430" cy="230" r="36" fill="#d8c3a5"/>
+  <circle cx="430" cy="300" r="24" fill="#d8c3a5"/>
+</svg>

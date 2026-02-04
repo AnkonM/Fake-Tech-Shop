@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catalogue | Vintage Tech Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container navbar-inner">
+        <a class="brand" href="index.html">Vintage Tech Store</a>
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation">
+          Menu
+        </button>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="catalogue.html">Catalogue</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <h1 class="section-title">Product Catalogue</h1>
+      <div class="filters">
+        <label class="select">
+          Category
+          <select>
+            <option>All</option>
+            <option>Audio</option>
+            <option>Computing</option>
+            <option>Studio</option>
+            <option>Photography</option>
+          </select>
+        </label>
+        <label class="select">
+          Sort by price
+          <select>
+            <option>Featured</option>
+            <option>Low to high</option>
+            <option>High to low</option>
+          </select>
+        </label>
+      </div>
+
+      <section class="grid grid-4">
+        <article class="card">
+          <img src="assets/images/walkman.svg" alt="Vintage Walkman" />
+          <div class="card-body">
+            <h3>Compact Cassette Walkman</h3>
+            <p class="price">$189</p>
+            <a class="button" href="product.html">View Product</a>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/images/tube-radio.svg" alt="Tube radio" />
+          <div class="card-body">
+            <h3>Tube Radio Receiver</h3>
+            <p class="price">$325</p>
+            <a class="button" href="product.html">View Product</a>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/images/crt-monitor.svg" alt="CRT monitor" />
+          <div class="card-body">
+            <h3>Studio CRT Monitor</h3>
+            <p class="price">$459</p>
+            <a class="button" href="product.html">View Product</a>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/images/film-camera.svg" alt="Film camera" />
+          <div class="card-body">
+            <h3>35mm Film Camera</h3>
+            <p class="price">$399</p>
+            <a class="button" href="product.html">View Product</a>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/images/mechanical-keyboard.svg" alt="Mechanical keyboard" />
+          <div class="card-body">
+            <h3>Type 88 Mechanical Keyboard</h3>
+            <p class="price">$249</p>
+            <a class="button" href="product.html">View Product</a>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/images/typewriter.svg" alt="Typewriter" />
+          <div class="card-body">
+            <h3>Deskline Typewriter</h3>
+            <p class="price">$280</p>
+            <a class="button" href="product.html">View Product</a>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/images/walkman.svg" alt="Portable recorder" />
+          <div class="card-body">
+            <h3>Portable Tape Recorder</h3>
+            <p class="price">$210</p>
+            <a class="button" href="product.html">View Product</a>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/images/crt-monitor.svg" alt="Terminal display" />
+          <div class="card-body">
+            <h3>Terminal Display 14”</h3>
+            <p class="price">$520</p>
+            <a class="button" href="product.html">View Product</a>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/images/film-camera.svg" alt="Instant camera" />
+          <div class="card-body">
+            <h3>Instant Photo Camera</h3>
+            <p class="price">$340</p>
+            <a class="button" href="product.html">View Product</a>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/images/tube-radio.svg" alt="Studio mixer" />
+          <div class="card-body">
+            <h3>Analog Studio Mixer</h3>
+            <p class="price">$610</p>
+            <a class="button" href="product.html">View Product</a>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>© 2026 Vintage Tech Store. All rights reserved.</p>
+        <small>This is a frontend demo project. No products are for sale.</small>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

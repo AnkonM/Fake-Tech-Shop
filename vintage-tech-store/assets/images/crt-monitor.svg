@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480" role="img" aria-label="CRT monitor illustration">
+  <rect width="640" height="480" fill="#f2e7d5"/>
+  <rect x="120" y="70" width="400" height="280" rx="18" fill="#5b4a3a"/>
+  <rect x="150" y="100" width="340" height="200" rx="12" fill="#1f2a24"/>
+  <rect x="150" y="320" width="340" height="30" rx="8" fill="#8f6d4a"/>
+  <rect x="250" y="360" width="140" height="40" rx="10" fill="#5b4a3a"/>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480" role="img" aria-label="Typewriter illustration">
+  <rect width="640" height="480" fill="#f2e7d5"/>
+  <rect x="110" y="190" width="420" height="160" rx="18" fill="#6f5a45"/>
+  <rect x="140" y="140" width="360" height="60" rx="12" fill="#8f6d4a"/>
+  <g fill="#d8c3a5">
+    <circle cx="200" cy="250" r="18"/>
+    <circle cx="250" cy="250" r="18"/>
+    <circle cx="300" cy="250" r="18"/>
+    <circle cx="350" cy="250" r="18"/>
+    <circle cx="400" cy="250" r="18"/>
+    <rect x="210" y="290" width="220" height="30" rx="8"/>
+  </g>
+</svg>

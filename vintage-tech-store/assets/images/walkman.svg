@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480" role="img" aria-label="Vintage Walkman illustration">
+  <rect width="640" height="480" fill="#f2e7d5"/>
+  <rect x="120" y="80" width="400" height="320" rx="24" fill="#6f5a45"/>
+  <rect x="160" y="120" width="320" height="160" rx="16" fill="#d8c3a5"/>
+  <circle cx="240" cy="320" r="54" fill="#2f3b2f"/>
+  <circle cx="400" cy="320" r="54" fill="#2f3b2f"/>
+  <circle cx="240" cy="320" r="22" fill="#f2e7d5"/>
+  <circle cx="400" cy="320" r="22" fill="#f2e7d5"/>
+  <rect x="290" y="300" width="60" height="40" rx="8" fill="#b08b63"/>
+</svg>
