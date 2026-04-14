@@ -464,7 +464,6 @@ select {
   .toolbar-search {
     order: 3;
     width: 100%;
-    margin-left: 0;
   }
 
   .toolbar-search-input {

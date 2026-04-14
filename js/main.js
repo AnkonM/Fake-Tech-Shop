@@ -50,7 +50,7 @@ const ensureToolbarSearch = () => {
     window.location.href = buildSearchUrl(input.value);
   });
 
-  navbarInner.insertBefore(form, navElement);
+  navElement.insertAdjacentElement("afterend", form);
 };
 
 const products = [
@@ -375,7 +375,11 @@ const applyCatalogueSearch = () => {
       return;
     }
 
-    const searchableText = productSearchIndex.get(card.dataset.productId) || "";
+    const productId = card.dataset.productId;
+    const searchableText = productSearchIndex.get(productId) || "";
+    if (!searchableText && normalizedQuery) {
+      console.warn(`Search index missing product id: ${productId}`);
+    }
     const isMatch = searchableText.includes(normalizedQuery);
     card.style.display = isMatch ? "" : "none";
     if (isMatch) visibleCount += 1;
