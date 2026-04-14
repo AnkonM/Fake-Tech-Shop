@@ -186,6 +186,16 @@ const products = [
   },
 ];
 
+const productsById = new Map(products.map((product) => [product.id, product]));
+const productSearchIndex = new Map(
+  products.map((product) => [
+    product.id,
+    `${product.name} ${product.id} ${product.description} ${product.specs.join(
+      " "
+    )}`.toLowerCase(),
+  ])
+);
+
 const cartKey = "vts-cart";
 
 const formatPrice = (value) => `$${value}`;
@@ -240,8 +250,7 @@ const renderProductPage = () => {
 
   const params = new URLSearchParams(window.location.search);
   const productId = params.get("id") || container.dataset.defaultId;
-  const product =
-    products.find((item) => item.id === productId) || products[0];
+  const product = productsById.get(productId) || products[0];
 
   const title = container.querySelector("#product-title");
   const price = container.querySelector("#product-price");
@@ -296,7 +305,7 @@ const renderCartPage = () => {
   let total = 0;
 
   cart.forEach((item) => {
-    const product = products.find((value) => value.id === item.id);
+    const product = productsById.get(item.id);
     if (!product) return;
     const itemTotal = product.price * item.quantity;
     total += itemTotal;
@@ -366,12 +375,7 @@ const applyCatalogueSearch = () => {
       return;
     }
 
-    const product = products.find((item) => item.id === card.dataset.productId);
-    const searchableText = product
-      ? `${product.name} ${product.id} ${product.description} ${product.specs.join(
-          " "
-        )}`.toLowerCase()
-      : "";
+    const searchableText = productSearchIndex.get(card.dataset.productId) || "";
     const isMatch = searchableText.includes(normalizedQuery);
     card.style.display = isMatch ? "" : "none";
     if (isMatch) visibleCount += 1;
