@@ -1,11 +1,57 @@
 const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelector(".nav-links");
+const searchParamKey = "search";
 
 if (navToggle && navLinks) {
   navToggle.addEventListener("click", () => {
     navLinks.classList.toggle("active");
   });
 }
+
+const getSearchQuery = () => {
+  const params = new URLSearchParams(window.location.search);
+  return (params.get(searchParamKey) || "").trim();
+};
+
+const buildSearchUrl = (query) => {
+  const trimmedQuery = query.trim();
+  if (!trimmedQuery) return "catalogue.html";
+  return `catalogue.html?${searchParamKey}=${encodeURIComponent(trimmedQuery)}`;
+};
+
+const ensureToolbarSearch = () => {
+  const navbarInner = document.querySelector(".navbar-inner");
+  if (!navbarInner || navbarInner.querySelector(".toolbar-search")) return;
+
+  const navElement = navbarInner.querySelector(".nav-links");
+  if (!navElement) return;
+
+  const form = document.createElement("form");
+  form.className = "toolbar-search";
+  form.setAttribute("role", "search");
+  form.setAttribute("aria-label", "Site search");
+
+  const input = document.createElement("input");
+  input.className = "toolbar-search-input";
+  input.type = "search";
+  input.name = searchParamKey;
+  input.placeholder = "Search products";
+  input.setAttribute("aria-label", "Search products");
+  input.value = getSearchQuery();
+
+  const button = document.createElement("button");
+  button.className = "toolbar-search-button";
+  button.type = "submit";
+  button.textContent = "Search";
+
+  form.append(input, button);
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    window.location.href = buildSearchUrl(input.value);
+  });
+
+  navElement.insertAdjacentElement("afterend", form);
+};
 
 const products = [
   {
@@ -140,6 +186,16 @@ const products = [
   },
 ];
 
+const productsById = new Map(products.map((product) => [product.id, product]));
+const productSearchIndex = new Map(
+  products.map((product) => [
+    product.id,
+    `${product.name} ${product.id} ${product.description} ${product.specs.join(
+      " "
+    )}`.toLowerCase(),
+  ])
+);
+
 const cartKey = "vts-cart";
 
 const formatPrice = (value) => `$${value}`;
@@ -194,8 +250,7 @@ const renderProductPage = () => {
 
   const params = new URLSearchParams(window.location.search);
   const productId = params.get("id") || container.dataset.defaultId;
-  const product =
-    products.find((item) => item.id === productId) || products[0];
+  const product = productsById.get(productId) || products[0];
 
   const title = container.querySelector("#product-title");
   const price = container.querySelector("#product-price");
@@ -250,7 +305,7 @@ const renderCartPage = () => {
   let total = 0;
 
   cart.forEach((item) => {
-    const product = products.find((value) => value.id === item.id);
+    const product = productsById.get(item.id);
     if (!product) return;
     const itemTotal = product.price * item.quantity;
     total += itemTotal;
@@ -300,9 +355,68 @@ const renderCartPage = () => {
   }
 };
 
+const applyCatalogueSearch = () => {
+  const productGrid = document.querySelector(".grid.grid-4");
+  if (!productGrid) return;
+
+  const cards = Array.from(
+    productGrid.querySelectorAll(".card[data-product-id]")
+  );
+  if (cards.length === 0) return;
+
+  const query = getSearchQuery();
+  const normalizedQuery = query.toLowerCase();
+
+  let visibleCount = 0;
+  cards.forEach((card) => {
+    if (!normalizedQuery) {
+      card.style.display = "";
+      visibleCount += 1;
+      return;
+    }
+
+    const productId = card.dataset.productId;
+    if (!productSearchIndex.has(productId)) {
+      console.warn(`Search index missing product id: ${productId}`);
+    }
+    const searchableText = productSearchIndex.get(productId) || "";
+    const isMatch = searchableText.includes(normalizedQuery);
+    card.style.display = isMatch ? "" : "none";
+    if (isMatch) visibleCount += 1;
+  });
+
+  let resultSummary = document.querySelector("#catalogue-search-summary");
+  if (!resultSummary) {
+    resultSummary = document.createElement("p");
+    resultSummary.id = "catalogue-search-summary";
+    resultSummary.className = "search-summary";
+
+    const filters = document.querySelector(".filters");
+    if (filters) {
+      filters.insertAdjacentElement("afterend", resultSummary);
+    } else {
+      productGrid.insertAdjacentElement("beforebegin", resultSummary);
+    }
+  }
+
+  if (!normalizedQuery) {
+    resultSummary.textContent = "";
+    resultSummary.style.display = "none";
+    return;
+  }
+
+  resultSummary.style.display = "block";
+  resultSummary.textContent =
+    visibleCount > 0
+      ? `Search results for "${query}" (${visibleCount})`
+      : `No products found for "${query}"`;
+};
+
+ensureToolbarSearch();
 bindCardInteractions();
 renderProductPage();
 renderCartPage();
+applyCatalogueSearch();
 
 const contactForm = document.querySelector("#contact-form");
 const formSuccess = document.querySelector("#form-success");
