@@ -376,10 +376,10 @@ const applyCatalogueSearch = () => {
     }
 
     const productId = card.dataset.productId;
-    const searchableText = productSearchIndex.get(productId) || "";
-    if (!searchableText && normalizedQuery) {
+    if (!productSearchIndex.has(productId)) {
       console.warn(`Search index missing product id: ${productId}`);
     }
+    const searchableText = productSearchIndex.get(productId) || "";
     const isMatch = searchableText.includes(normalizedQuery);
     card.style.display = isMatch ? "" : "none";
     if (isMatch) visibleCount += 1;
